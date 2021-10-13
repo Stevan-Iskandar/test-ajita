@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,10 @@ Route::name('api')->group(function () {
         Route::get('/kotaasc', [ProductController::class, 'kotaAsc'])->name('.kotaAsc');
         Route::get('/hargatertinggiperkota', [ProductController::class, 'hargaTertinggiPerKota'])->name('.hargaTertinggiPerKota');
         Route::get('/hargaterendah', [ProductController::class, 'hargaTerendah'])->name('.hargaTerendah');
+    });
+
+    Route::prefix('karyawan')->name('.karyawan')->group(function () {
+        Route::get('/', [KaryawanController::class, 'index'])->name('.index');
+        Route::post('/', [KaryawanController::class, 'store'])->name('.index.submit');
     });
 });

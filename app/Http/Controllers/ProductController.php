@@ -13,7 +13,7 @@ class ProductController extends Controller
 
         $response       = [
             'status'    => 401,
-            'message'   => 'Squad not found',
+            'message'   => 'Product not found',
         ];
 
         if (!$products)
@@ -65,10 +65,5 @@ class ProductController extends Controller
         ];
 
         return $this->response($response);
-    }
-
-    public function response($response)
-    {
-        return response()->json($response, $response['status']);
     }
 }
